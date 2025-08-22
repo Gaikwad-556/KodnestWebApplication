@@ -56,5 +56,5 @@ Before running the tests, ensure you have the following installed:
   - Valid user password recovery
   - Invalid/non-registered user recovery attempt
 
-👨‍💻 Author
+👨‍💻 Author:-
 Shubhankar S. Gaikwad
