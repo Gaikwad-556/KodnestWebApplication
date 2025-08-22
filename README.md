@@ -57,6 +57,6 @@ Before running the tests, ensure you have the following installed:
 - Extend database-driven tests with more scenarios.
 - Introduce cross-browser testing support.
 
-👨‍💻 Author:-
+👨‍💻 Author
 
 Shubhankar S. Gaikwad
