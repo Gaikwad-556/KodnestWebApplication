@@ -1,7 +1,8 @@
 KodeNest Application – Test Automation Suite
 
 📌 Project Overview
-The CodeNest Application Test Suite is an automated testing project built using Java and TestNG. It validates the key functionalities of the CodeNest application, including:
+
+The KodeNest Application Test Suite is an automated testing project built using Java and TestNG. It validates the key functionalities of the CodeNest application, including:
 
 - User Registration
 - User Login
@@ -35,11 +36,6 @@ Before running the tests, ensure you have the following installed:
 - Selenium WebDriver JARs included in the project
 - Database Connection (configured inside test classes for fetching test data)
 
-🚀 Future Enhancements
-- Add CI/CD pipeline integration (Jenkins/GitHub Actions).
-- Extend database-driven tests with more scenarios.
-- Introduce cross-browser testing support.
-
 📊 Test Coverage
 - Registration Module
   - Valid data submission
@@ -56,6 +52,11 @@ Before running the tests, ensure you have the following installed:
 - Password Recovery Module
   - Valid user password recovery
   - Invalid/non-registered user recovery attempt
+
+ 🚀 Future Enhancements
+- Add CI/CD pipeline integration (Jenkins/GitHub Actions).
+- Extend database-driven tests with more scenarios.
+- Introduce cross-browser testing support.
 
 👨‍💻 Author:-
 Shubhankar S. Gaikwad
