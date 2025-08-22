@@ -20,6 +20,7 @@ This project follows the Page Object Model (POM) for test automation and uses a 
   - Password recovery validation
 
 ⚙️ Prerequisites
+
 Before running the tests, ensure you have the following installed:
 - Java JDK 8 or above
 - TestNG (installed in your IDE or via jar)
@@ -49,4 +50,5 @@ Before running the tests, ensure you have the following installed:
 - Introduce cross-browser testing support.
 
 👨‍💻 Author:-
+
 Shubhankar S. Gaikwad
