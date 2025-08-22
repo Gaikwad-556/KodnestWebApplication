@@ -44,6 +44,14 @@ Before running the tests, ensure you have the following installed:
   - Valid user password recovery
   - Invalid/non-registered user recovery attempt
 
+🛠️ Tech Stack
+
+- Programming Language: Java
+- Automation Tool: Selenium WebDriver
+- Testing Framework: TestNG
+- Framework Design: Page Object Model (POM)
+- Test Data: Data-Driven Testing with Database Integration (JDBC)
+
  🚀 Future Enhancements
 - Add CI/CD pipeline integration (Jenkins/GitHub Actions).
 - Extend database-driven tests with more scenarios.
