@@ -10,24 +10,6 @@ The KodeNest Application Test Suite is an automated testing project built using 
 
 This project follows the Page Object Model (POM) for test automation and uses a Data-Driven Testing approach by fetching test data directly from a database.
 
-📂 Project Structure
-
-KodeNest-Application/
-
-│
-
-├── src/
-
-│   ├── registration/        # Contains Registration test scripts & page objects
-
-│   ├── login/               # Contains Login test scripts & page objects
-
-│   ├── passwordrecovery/    # Contains Password Recovery test scripts & page objects
-
-│
-
-└── README.md                # Project documentation (this file)
-
 🧪 Features
 - Page Object Model (POM): Separates page elements and actions from test logic for better reusability.
 - Data-Driven Testing: Test data is fetched from a database (instead of hardcoded values or resource files).
