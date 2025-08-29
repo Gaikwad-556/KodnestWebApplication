@@ -19,15 +19,7 @@ This project follows the Page Object Model (POM) for test automation and uses a 
   - Login functionality validation
   - Password recovery validation
 
-⚙️ Prerequisites
-
-Before running the tests, ensure you have the following installed:
-- Java JDK 8 or above
-- TestNG (installed in your IDE or via jar)
-- Selenium WebDriver JARs included in the project
-- Database Connection (configured inside test classes for fetching test data)
-
-📊 Test Coverage
+ 📊 Test Coverage
 - Registration Module
   - Valid data submission
   - Invalid inputs (email, phone, WhatsApp number, year selection, etc.)
@@ -44,11 +36,27 @@ Before running the tests, ensure you have the following installed:
   - Valid user password recovery
   - Invalid/non-registered user recovery attempt
 
+ 🛠️ Tech Stack
+
+- Programming Language: Java
+- Automation Tool: Selenium WebDriver
+- Testing Framework: TestNG
+- Framework Design: Page Object Model (POM)
+- Test Data: Data-Driven Testing with Database Integration (JDBC)
+
+⚙️ Prerequisites
+
+Before running the tests, ensure you have the following installed:
+- Java JDK 8 or above
+- TestNG (installed in your IDE or via jar)
+- Selenium WebDriver JARs included in the project
+- Database Connection (configured inside test classes for fetching test data)
+
  🚀 Future Enhancements
 - Add CI/CD pipeline integration (Jenkins/GitHub Actions).
 - Extend database-driven tests with more scenarios.
 - Introduce cross-browser testing support.
 
-👨‍💻 Author:-
+👨‍💻 Author
 
 Shubhankar S. Gaikwad
