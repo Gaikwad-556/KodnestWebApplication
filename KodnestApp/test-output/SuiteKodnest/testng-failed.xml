@@ -1,42 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [SuiteKodnest]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="TestRegistrationKodNest(failed)">
-    <classes>
-      <class name="com.Kodnest.Registration.RegistrationTestCases">
-        <methods>
-          <include name="nonExistingUserReferralField"/>
-          <include name="clear"/>
-          <include name="languageDropDown"/>
-          <include name="negativePhoneFieldEntry"/>
-          <include name="registeredEmailFieldEntry"/>
-          <include name="clean"/>
-          <include name="allValidInputs"/>
-          <include name="lesserThanTenPhoneAndWhatsappFieldEntry"/>
-          <include name="numericValueInvalidNameFieldEntry"/>
-          <include name="graduationYearDropDown"/>
-          <include name="setup"/>
-          <include name="specialValueInvalidNameFieldEntry"/>
-          <include name="invalidEmailFieldEntry"/>
-          <include name="allFieldBlank"/>
-          <include name="moreThanTenPhoneAndWhatsappFieldEntry"/>
-        </methods>
-      </class> <!-- com.Kodnest.Registration.RegistrationTestCases -->
-    </classes>
-  </test> <!-- TestRegistrationKodNest(failed) -->
   <test thread-count="5" name="TestLoginKodNest(failed)">
+    <parameter name="loginurl" value="https://app.kodnest.com/login"/>
     <classes>
       <class name="com.Kodnest.Login.LoginPage">
         <methods>
-          <include name="clearForm"/>
-          <include name="InvalidEmailFormat"/>
           <include name="InitialSetUp"/>
           <include name="clean"/>
-          <include name="IncorrectCredentials"/>
           <include name="EmailPasswordFieldBlank"/>
-          <include name="ValidLogin"/>
-          <include name="togglePassword"/>
-          <include name="UserNotFound"/>
         </methods>
       </class> <!-- com.Kodnest.Login.LoginPage -->
     </classes>

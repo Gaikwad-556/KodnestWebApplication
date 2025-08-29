@@ -1,21 +1,21 @@
 package com.Kodnest.Login;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Map;
+import java.util.Properties;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import utils.DatabaseUtils;
+
 public class LoginPageModel {
 	private WebDriver driver;
-	private Connection con;
 
 	public LoginPageModel(WebDriver driver) {
 		super();
@@ -33,17 +33,6 @@ public class LoginPageModel {
 	private By forgotPasswordLink = By.linkText("Forgot your password?");
 	private By toggleButton = By.id("toggle-password-visibility");
 	
-//	Variable
-	private String dburl = System.getenv("URL_DB");
-	private String dbpassword = System.getenv("PASSWORD_DB");
-	private String dbuser= System.getenv("USER_DB");
-	
-//	Query
-	String queryInvalidEmailFormat = "select * from loginpage where status='fail' AND testingType='invalidemailformat'";
-	String queryIncorrectCredentials = "select * from loginpage where status='fail' AND testingType='incorrectcredentials'";
-	String queryUserNotFound = "select * from loginpage where status='fail' AND testingType='usernotfound'";
-	String queryFieldEmpty = "select * from loginpage where status='fail' AND testingType='emailpasswordfieldblank'";
-	String queryVaildLogin = "select * from loginpage where status='fail' AND testingType='validlogin'";
 
 //	email field
 	public void enterEmail(String Email) {
@@ -71,7 +60,7 @@ public class LoginPageModel {
 	
 //	validate incorrect credentials 
 	public String IncorrectCredentials() {	
-		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(4));
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
 		WebElement text = wait.until(ExpectedConditions.visibilityOfElementLocated(incorrectCredentials));
 		return text.getText();
 	}
@@ -97,7 +86,7 @@ public class LoginPageModel {
 	public void ClickForgotPasswordLink() {
 		driver.findElement(forgotPasswordLink).click();
 	}
-	
+
 //	toggle feature
 	public String passwordType() {
 		return driver.findElement(passwordField).getDomAttribute("type");
@@ -109,24 +98,25 @@ public class LoginPageModel {
 	}
 	
 //	database connection
-	public List<String[]> dbData(String query) throws SQLException {
-		List<String[]> data = new ArrayList<>();
+	public List<Map<String,String>> dbData(String prams1, String prams2) throws SQLException, FileNotFoundException, IOException {
+		Properties pros = new Properties();
+		pros.load(new FileInputStream("C:\\Users\\hp\\git\\repository2\\KodnestApp\\src\\com\\Kodnest\\Login\\queries.properties"));
+		String query = pros.getProperty("loginPageQuery");
 		
-		con = DriverManager.getConnection(dburl,dbuser,dbpassword);
-		Statement st = con.createStatement();
-		ResultSet rs = st.executeQuery(query);
-		while(rs.next()) {
-			String email = rs.getString("email");
-			String password = rs.getString("password");
-			String result = rs.getString("result");
-			
-			data.add(new String[]{email,password,result});
-		}
+		List<Map<String, String>> data = DatabaseUtils.getTestData(query, prams1,prams2);
+		
 		return data;
 	}
 	
-//	clear
-	public void clear() {
+//	field clear
+	public void fieldClear() {
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		driver.navigate().refresh();
+	}
+	
+//	quite
+	public void clear() throws SQLException {
+		DatabaseUtils.close();
 		driver.quit();
 	}
 }

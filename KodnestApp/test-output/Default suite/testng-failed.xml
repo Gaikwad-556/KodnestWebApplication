@@ -1,27 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
+  <parameter name="loginurl" value="https://app.kodnest.com/login"/>
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Kodnest.Registration.RegistrationTestCases">
+      <class name="com.Kodnest.Login.LoginPage">
         <methods>
-          <include name="clear"/>
-          <include name="languageDropDown"/>
+          <include name="InvalidEmailFormat"/>
+          <include name="InitialSetUp"/>
           <include name="clean"/>
-          <include name="moreThanTenDigitPhoneAndWhatsappEntry"/>
-          <include name="registeredEmailEntry"/>
-          <include name="allValidInputs"/>
-          <include name="numericValueInNameField"/>
-          <include name="specialValueInNameField"/>
-          <include name="graduationYearDropDown"/>
-          <include name="lesserThanTenDigitPhoneAndWhatsappEntry"/>
-          <include name="nonExistingUserReferralEntry"/>
-          <include name="setup"/>
-          <include name="negativePhoneEntry"/>
-          <include name="allFieldBlank"/>
-          <include name="invalidFormatedEmailEntry"/>
         </methods>
-      </class> <!-- com.Kodnest.Registration.RegistrationTestCases -->
+      </class> <!-- com.Kodnest.Login.LoginPage -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
