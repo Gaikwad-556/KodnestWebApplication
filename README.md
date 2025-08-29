@@ -57,6 +57,9 @@ Before running the tests, ensure you have the following installed:
 - Extend database-driven tests with more scenarios.
 - Introduce cross-browser testing support.
 
+NOTE:
+“All SQL queries used for data-driven testing are stored in queries.properties. No sensitive credentials are included; database credentials must be configured via environment variables.”
+
 👨‍💻 Author
 
 Shubhankar S. Gaikwad
