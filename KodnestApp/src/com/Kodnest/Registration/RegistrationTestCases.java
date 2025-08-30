@@ -13,6 +13,8 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import utils.DatabaseUtils;
+
 public class RegistrationTestCases {
 	WebDriver driver;
 	RegistrationPOM rPOM;
@@ -34,9 +36,10 @@ public class RegistrationTestCases {
 	public void numericValueInNameField() throws SQLException, FileNotFoundException, IOException {
 		String status = "fail";
 		String testingType = "numericValueInNameField";
+		String queryOf = "registrationQuery";
 		
 //		list of data from db
-		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
 		for(Map<String, String> i:data) {		
 //			getting value from list
 			String name = i.get("name");
@@ -70,9 +73,10 @@ public class RegistrationTestCases {
 	public void specialValueInNameField() throws SQLException, FileNotFoundException, IOException {
 		String status = "fail";
 		String testingType = "specialValueInNameField";
+		String queryOf = "registrationQuery";
 		
 //		list of data from db
-		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
 		for(Map<String, String> i:data) {		
 //			getting value from list
 			String name = i.get("name");
@@ -106,9 +110,10 @@ public class RegistrationTestCases {
 	public void allFieldBlank() throws SQLException, FileNotFoundException, IOException {
 		String status = "fail";
 		String testingType = "allFieldBlank";
+		String queryOf = "registrationQuery";
 		
 //		list of data from db
-		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
 		for(Map<String, String> i:data) {		
 //			getting value from list
 			String name = i.get("name");
@@ -140,9 +145,10 @@ public class RegistrationTestCases {
 	public void invalidFormatedEmailEntry() throws SQLException, FileNotFoundException, IOException {
 		String status = "fail";
 		String testingType = "invalidFormatedEmailEntry";
+		String queryOf = "registrationQuery";
 		
 //		list of data from db
-		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
 		for(Map<String, String> i:data) {		
 //			getting value from list
 			String name = i.get("name");
@@ -176,9 +182,10 @@ public class RegistrationTestCases {
 	public void registeredEmailEntry() throws SQLException, FileNotFoundException, IOException {
 		String status = "fail";
 		String testingType = "registeredEmailEntry";
+		String queryOf = "registrationQuery";
 		
 //		list of data from db
-		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
 		for(Map<String, String> i:data) {		
 //			getting value from list
 			String name = i.get("name");
@@ -212,9 +219,10 @@ public class RegistrationTestCases {
 	public void negativePhoneEntry() throws SQLException, FileNotFoundException, IOException {
 		String status = "fail";
 		String testingType = "negativePhoneEntry";
+		String queryOf = "registrationQuery";
 		
 //		list of data from db
-		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
 		for(Map<String, String> i:data) {		
 //			getting value from list
 			String name = i.get("name");
@@ -248,9 +256,10 @@ public class RegistrationTestCases {
 	public void lesserThanTenDigitPhoneAndWhatsappEntry() throws SQLException, FileNotFoundException, IOException {
 		String status = "fail";
 		String testingType = "lesserThanTenDigitPhoneAndWhatsappEntry";
+		String queryOf = "registrationQuery";
 		
 //		list of data from db
-		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
 		for(Map<String, String> i:data) {		
 //			getting value from list
 			String name = i.get("name");
@@ -284,9 +293,10 @@ public class RegistrationTestCases {
 	public void moreThanTenDigitPhoneAndWhatsappEntry() throws SQLException, FileNotFoundException, IOException {
 		String status = "fail";
 		String testingType = "moreThanTenDigitPhoneAndWhatsappEntry";
+		String queryOf = "registrationQuery";
 		
 //		list of data from db
-		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
 		for(Map<String, String> i:data) {		
 //			getting value from list
 			String name = i.get("name");
@@ -320,9 +330,10 @@ public class RegistrationTestCases {
 	public void graduationYearDropDown() throws SQLException, FileNotFoundException, IOException {
 		String status = "pass";
 		String testingType = "allValidInputs";
+		String queryOf = "registrationQuery";
 		
 //		list of data from db
-		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
 		for(Map<String, String> i:data) {		
 //			getting value from list
 			String name = i.get("name");
@@ -356,9 +367,10 @@ public class RegistrationTestCases {
 	public void languageDropDown() throws SQLException, FileNotFoundException, IOException {
 		String status = "pass";
 		String testingType = "allValidInputs";
+		String queryOf = "registrationQuery";
 		
 //		list of data from db
-		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
 		for(Map<String, String> i:data) {		
 //			getting value from list
 			String name = i.get("name");
@@ -392,9 +404,10 @@ public class RegistrationTestCases {
 	public void nonExistingUserReferralEntry() throws SQLException, FileNotFoundException, IOException {
 		String status = "fail";
 		String testingType = "nonExistingUserReferralEntry";
-		
+		String queryOf = "registrationQuery";
+
 //		list of data from db
-		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
 		for(Map<String, String> i:data) {		
 //			getting value from list
 			String name = i.get("name");
@@ -428,9 +441,10 @@ public class RegistrationTestCases {
 	public void allValidInputs() throws SQLException, FileNotFoundException, IOException {
 		String status = "pass";
 		String testingType = "allValidInputs";
+		String queryOf = "registrationQuery";
 		
 //		list of data from db
-		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
 		for(Map<String, String> i:data) {		
 //			getting value from list
 			String name = i.get("name");

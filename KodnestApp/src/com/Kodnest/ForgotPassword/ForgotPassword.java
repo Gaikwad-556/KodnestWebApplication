@@ -17,6 +17,8 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import utils.DatabaseUtils;
+
 
 public class ForgotPassword {
 	WebDriver driver;
@@ -36,8 +38,9 @@ public class ForgotPassword {
 	public void invalidEmailFormat() throws SQLException, FileNotFoundException, IOException {
 		String status = "fail";
 		String testingType = "invalid email format";
+		String queryOf = "passwordRecoveryQuery";
 		
-		List<Map<String, String>> data = fpModel.dbdata(status,testingType);
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status,testingType,queryOf);
 		for(Map<String, String> i:data) {
 			String email = i.get("email");
 			String result = i.get("result");
@@ -58,8 +61,9 @@ public class ForgotPassword {
 	public void emptyField() throws SQLException, FileNotFoundException, IOException {
 		String status = "fail";
 		String testingType = "field blank";
+		String queryOf = "passwordRecoveryQuery";
 		
-		List<Map<String, String>> data = fpModel.dbdata(status,testingType);
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status,testingType,queryOf);
 		for(Map<String, String> i:data) {
 			String email = i.get("email");
 			String result = i.get("result");
@@ -80,8 +84,9 @@ public class ForgotPassword {
 	public void invalidUser() throws SQLException, FileNotFoundException, IOException {
 		String status = "fail";
 		String testingType = "invalid user";
+		String queryOf = "passwordRecoveryQuery";
 		
-		List<Map<String, String>> data = fpModel.dbdata(status,testingType);
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status,testingType,queryOf);
 		for(Map<String, String> i:data) {
 			String email = i.get("email");
 			String result = i.get("result");
@@ -102,8 +107,9 @@ public class ForgotPassword {
 	public void validUser() throws SQLException, FileNotFoundException, IOException {
 		String status = "pass";
 		String testingType = "valid email";
+		String queryOf = "passwordRecoveryQuery";
 		
-		List<Map<String, String>> data = fpModel.dbdata(status,testingType);
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status,testingType,queryOf);
 		for(Map<String, String> i:data) {
 			String email = i.get("email");
 //			String result = i.get("result");

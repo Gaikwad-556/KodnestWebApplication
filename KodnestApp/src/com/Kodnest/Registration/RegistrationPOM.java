@@ -146,17 +146,6 @@ public class RegistrationPOM {
 		}	
 	}
 	
-//	database connection
-	public List<Map<String, String>> dbdata(String prams1, String prams2) throws SQLException, FileNotFoundException, IOException {
-		Properties props = new Properties();
-		props.load(new FileInputStream("C:\\Users\\hp\\git\\repository2\\KodnestApp\\src\\queries.properties"));
-		String query = props.getProperty("registrationQuery");
-	
-		List<Map<String, String>> data = DatabaseUtils.getTestData(query, prams1, prams2);
-		return data;
-	}
-
-	
 //	assert methods
 //	validate fields
 	public void validateField() {

@@ -13,6 +13,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import utils.DatabaseUtils;
 //import org.testng.ITestResult;
 //import org.testng.annotations.AfterMethod;
 
@@ -35,8 +37,9 @@ public class LoginPage {
 		
 		String status = "fail";
 		String testingType = "invalidemailformat";
+		String queryOf = "loginPageQuery";
 		
-		List<Map<String, String>> data = pageModel.dbData(status, testingType);
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
 		for(Map<String,String> i:data) {
 			String email = i.get("email");
 			String password = i.get("password");
@@ -60,8 +63,9 @@ public class LoginPage {
 	public void IncorrectCredentials() throws SQLException, FileNotFoundException, IOException {
 		String status = "fail";
 		String testingType = "incorrectcredentials";
+		String queryOf = "loginPageQuery";
 		
-		List<Map<String, String>> data = pageModel.dbData(status, testingType);
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
 		for(Map<String,String> i:data) {
 			String email = i.get("email");
 			String password = i.get("password");
@@ -84,8 +88,9 @@ public class LoginPage {
 	public void UserNotFound() throws SQLException, FileNotFoundException, IOException {
 		String status = "fail";
 		String testingType = "usernotfound";
-		
-		List<Map<String, String>> data = pageModel.dbData(status, testingType);
+		String queryOf = "loginPageQuery";
+
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
 		for(Map<String,String> i:data) {
 			String email = i.get("email");
 			String password = i.get("password");
@@ -108,8 +113,9 @@ public class LoginPage {
 	public void EmailPasswordFieldBlank() throws SQLException, FileNotFoundException, IOException {
 		String status = "fail";
 		String testingType = "emailpasswordfieldblank";
+		String queryOf = "loginPageQuery";
 		
-		List<Map<String, String>> data = pageModel.dbData(status, testingType);
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
 		for(Map<String,String> i:data) {
 			String email = i.get("email");
 			String password = i.get("password");
@@ -134,8 +140,9 @@ public class LoginPage {
 	public void togglePassword() throws InterruptedException, SQLException, FileNotFoundException, IOException {
 		String status = "fail";
 		String testingType = "invalidemailformat";
+		String queryOf = "loginPageQuery";
 		
-		List<Map<String, String>> data = pageModel.dbData(status, testingType);
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
 		for(Map<String,String> i:data) {
 			String password = i.get("password");
 			
@@ -159,8 +166,9 @@ public class LoginPage {
 	public void ValidLogin() throws SQLException, FileNotFoundException, IOException {
 		String status = "pass";
 		String testingType = "validlogin";
+		String queryOf = "loginPageQuery";
 		
-		List<Map<String, String>> data = pageModel.dbData(status, testingType);
+		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
 		for(Map<String,String> i:data) {
 			String email = i.get("email");
 			String password = i.get("password");
