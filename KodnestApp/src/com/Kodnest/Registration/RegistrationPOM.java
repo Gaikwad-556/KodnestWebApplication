@@ -1,18 +1,7 @@
 package com.Kodnest.Registration;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
 
+import java.sql.SQLException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -33,8 +22,7 @@ public class RegistrationPOM {
 		PageFactory.initElements(driver, this);
 	} 
 	
-	
-//	locators
+//	Locators
 	@FindBy(id = "form-field-name")
 	private WebElement nameField;
 	
@@ -72,8 +60,7 @@ public class RegistrationPOM {
 	private WebElement language;
 
 	
-//	METHODS
-	
+//	Interacting methods
 //	Name Field	
 	public void dataName(String name) {
 		nameField.sendKeys(name);
@@ -146,12 +133,11 @@ public class RegistrationPOM {
 		}	
 	}
 	
-//	assert methods
+//	Assert methods
 //	validate fields
 	public void validateField() {
 		// Assert.assertEquals(excepted error, actual error);
 	}
-	
 	
 //	clear
 	public void clear() throws SQLException {

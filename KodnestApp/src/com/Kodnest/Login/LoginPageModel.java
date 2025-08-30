@@ -1,13 +1,7 @@
 package com.Kodnest.Login;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.sql.SQLException;
 import java.time.Duration;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -33,7 +27,7 @@ public class LoginPageModel {
 	private By forgotPasswordLink = By.linkText("Forgot your password?");
 	private By toggleButton = By.id("toggle-password-visibility");
 	
-
+//	Interacting Methods 
 //	email field
 	public void enterEmail(String Email) {
 		WebElement email = driver.findElement(emailField);

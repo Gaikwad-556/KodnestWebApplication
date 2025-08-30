@@ -36,11 +36,16 @@ public class ForgotPassword {
 //	Invalid Email Format
 	@Test(priority = 1)
 	public void invalidEmailFormat() throws SQLException, FileNotFoundException, IOException {
+		
+//		query parameters
 		String status = "fail";
 		String testingType = "invalid email format";
 		String queryOf = "passwordRecoveryQuery";
 		
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status,testingType,queryOf);
+		
+//		interacting with browser
 		for(Map<String, String> i:data) {
 			String email = i.get("email");
 			String result = i.get("result");
@@ -59,11 +64,15 @@ public class ForgotPassword {
 //	empty field
 	@Test(priority = 2)
 	public void emptyField() throws SQLException, FileNotFoundException, IOException {
+//		query parameters
 		String status = "fail";
 		String testingType = "field blank";
 		String queryOf = "passwordRecoveryQuery";
 		
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status,testingType,queryOf);
+		
+//		interacting with browser
 		for(Map<String, String> i:data) {
 			String email = i.get("email");
 			String result = i.get("result");
@@ -82,11 +91,15 @@ public class ForgotPassword {
 //	Invalid User
 	@Test(priority = 3)
 	public void invalidUser() throws SQLException, FileNotFoundException, IOException {
+//		query parameters
 		String status = "fail";
 		String testingType = "invalid user";
 		String queryOf = "passwordRecoveryQuery";
 		
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status,testingType,queryOf);
+		
+//		interacting with browser
 		for(Map<String, String> i:data) {
 			String email = i.get("email");
 			String result = i.get("result");
@@ -105,11 +118,15 @@ public class ForgotPassword {
 //	Valid User
 	@Test(priority = 4)
 	public void validUser() throws SQLException, FileNotFoundException, IOException {
+//		query parameters
 		String status = "pass";
 		String testingType = "valid email";
 		String queryOf = "passwordRecoveryQuery";
 		
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status,testingType,queryOf);
+		
+//		interacting with browser
 		for(Map<String, String> i:data) {
 			String email = i.get("email");
 //			String result = i.get("result");
@@ -119,7 +136,7 @@ public class ForgotPassword {
 		}
 	}
 	
-//	quite
+//	quit
 	@AfterTest
 	public void clean() throws SQLException {
 		fpModel.clear();

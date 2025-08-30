@@ -34,12 +34,15 @@ public class LoginPage {
 //	Invalid Email Format
 	@Test(priority = 1)
 	public void InvalidEmailFormat() throws SQLException, FileNotFoundException, IOException {
-		
+//		query parameters
 		String status = "fail";
 		String testingType = "invalidemailformat";
 		String queryOf = "loginPageQuery";
 		
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
+		
+//		interacting with browser
 		for(Map<String,String> i:data) {
 			String email = i.get("email");
 			String password = i.get("password");
@@ -61,11 +64,15 @@ public class LoginPage {
 //	Incorrect Credentials
 	@Test(priority = 2)
 	public void IncorrectCredentials() throws SQLException, FileNotFoundException, IOException {
+//		query parameters
 		String status = "fail";
 		String testingType = "incorrectcredentials";
 		String queryOf = "loginPageQuery";
 		
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
+		
+//		interacting with browser
 		for(Map<String,String> i:data) {
 			String email = i.get("email");
 			String password = i.get("password");
@@ -86,11 +93,15 @@ public class LoginPage {
 //	User Not Found
 	@Test(priority = 3)
 	public void UserNotFound() throws SQLException, FileNotFoundException, IOException {
+//		query parameters
 		String status = "fail";
 		String testingType = "usernotfound";
 		String queryOf = "loginPageQuery";
 
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
+		
+//		interacting with browser
 		for(Map<String,String> i:data) {
 			String email = i.get("email");
 			String password = i.get("password");
@@ -111,11 +122,15 @@ public class LoginPage {
 //	Email and Password Field Blank
 	@Test(priority = 4) 
 	public void EmailPasswordFieldBlank() throws SQLException, FileNotFoundException, IOException {
+//		query parameters
 		String status = "fail";
 		String testingType = "emailpasswordfieldblank";
 		String queryOf = "loginPageQuery";
 		
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
+		
+//		interacting with browser
 		for(Map<String,String> i:data) {
 			String email = i.get("email");
 			String password = i.get("password");
@@ -138,11 +153,15 @@ public class LoginPage {
 //	Toggle Password
 	@Test(priority = 5)
 	public void togglePassword() throws InterruptedException, SQLException, FileNotFoundException, IOException {
+//		query parameters
 		String status = "fail";
 		String testingType = "invalidemailformat";
 		String queryOf = "loginPageQuery";
 		
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
+		
+//		interacting with browser
 		for(Map<String,String> i:data) {
 			String password = i.get("password");
 			
@@ -164,11 +183,15 @@ public class LoginPage {
 //	Valid login
 	@Test(priority = 6) 
 	public void ValidLogin() throws SQLException, FileNotFoundException, IOException {
+//		query parameters
 		String status = "pass";
 		String testingType = "validlogin";
 		String queryOf = "loginPageQuery";
 		
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
+		
+//		interacting with browser
 		for(Map<String,String> i:data) {
 			String email = i.get("email");
 			String password = i.get("password");
@@ -182,7 +205,7 @@ public class LoginPage {
 		}	
 	}
 
-//	quite
+//	quit
 	@AfterTest
 	public void clean() throws SQLException {
 		pageModel.clear();

@@ -34,14 +34,16 @@ public class RegistrationTestCases {
 //	Numeric Value In Name Field
 	@Test(priority = 1) 
 	public void numericValueInNameField() throws SQLException, FileNotFoundException, IOException {
+//		query parameters
 		String status = "fail";
 		String testingType = "numericValueInNameField";
 		String queryOf = "registrationQuery";
 		
-//		list of data from db
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
+		
+//		interacting with browser
 		for(Map<String, String> i:data) {		
-//			getting value from list
 			String name = i.get("name");
 			String email = i.get("email");
 			String phone = i.get("phone");
@@ -71,14 +73,16 @@ public class RegistrationTestCases {
 //	Special Value In Name Field
 	@Test(priority = 2) 
 	public void specialValueInNameField() throws SQLException, FileNotFoundException, IOException {
+//		query parameters
 		String status = "fail";
 		String testingType = "specialValueInNameField";
 		String queryOf = "registrationQuery";
 		
-//		list of data from db
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
+		
+//		interacting with browser
 		for(Map<String, String> i:data) {		
-//			getting value from list
 			String name = i.get("name");
 			String email = i.get("email");
 			String phone = i.get("phone");
@@ -108,14 +112,16 @@ public class RegistrationTestCases {
 //	All field blank
 	@Test(priority = 3) 
 	public void allFieldBlank() throws SQLException, FileNotFoundException, IOException {
+//		query parameters
 		String status = "fail";
 		String testingType = "allFieldBlank";
 		String queryOf = "registrationQuery";
 		
-//		list of data from db
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
+		
+//		interacting with browser
 		for(Map<String, String> i:data) {		
-//			getting value from list
 			String name = i.get("name");
 			String email = i.get("email");
 			String phone = i.get("phone");
@@ -143,14 +149,16 @@ public class RegistrationTestCases {
 //	Invalid Formated Email
 	@Test(priority = 4) 
 	public void invalidFormatedEmailEntry() throws SQLException, FileNotFoundException, IOException {
+//		query parameters
 		String status = "fail";
 		String testingType = "invalidFormatedEmailEntry";
 		String queryOf = "registrationQuery";
 		
-//		list of data from db
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
+		
+//		interacting with browser
 		for(Map<String, String> i:data) {		
-//			getting value from list
 			String name = i.get("name");
 			String email = i.get("email");
 			String phone = i.get("phone");
@@ -180,14 +188,16 @@ public class RegistrationTestCases {
 //	Registered Email
 	@Test(priority = 5) 
 	public void registeredEmailEntry() throws SQLException, FileNotFoundException, IOException {
+//		query parameters
 		String status = "fail";
 		String testingType = "registeredEmailEntry";
 		String queryOf = "registrationQuery";
 		
-//		list of data from db
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
+		
+//		interacting with browser
 		for(Map<String, String> i:data) {		
-//			getting value from list
 			String name = i.get("name");
 			String email = i.get("email");
 			String phone = i.get("phone");
@@ -217,14 +227,16 @@ public class RegistrationTestCases {
 //	Negative Phone Number
 	@Test(priority = 6) 
 	public void negativePhoneEntry() throws SQLException, FileNotFoundException, IOException {
+//		query parameters
 		String status = "fail";
 		String testingType = "negativePhoneEntry";
 		String queryOf = "registrationQuery";
 		
-//		list of data from db
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
+		
+//		interacting with browser
 		for(Map<String, String> i:data) {		
-//			getting value from list
 			String name = i.get("name");
 			String email = i.get("email");
 			String phone = i.get("phone");
@@ -254,14 +266,16 @@ public class RegistrationTestCases {
 //	Entered less than 10 digit phone number
 	@Test(priority = 7) 
 	public void lesserThanTenDigitPhoneAndWhatsappEntry() throws SQLException, FileNotFoundException, IOException {
+//		query parameters
 		String status = "fail";
 		String testingType = "lesserThanTenDigitPhoneAndWhatsappEntry";
 		String queryOf = "registrationQuery";
 		
-//		list of data from db
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
+		
+//		interacting with browser
 		for(Map<String, String> i:data) {		
-//			getting value from list
 			String name = i.get("name");
 			String email = i.get("email");
 			String phone = i.get("phone");
@@ -291,14 +305,16 @@ public class RegistrationTestCases {
 //	Entered more than 10 digit phone number
 	@Test(priority = 8) 
 	public void moreThanTenDigitPhoneAndWhatsappEntry() throws SQLException, FileNotFoundException, IOException {
+//		query parameters
 		String status = "fail";
 		String testingType = "moreThanTenDigitPhoneAndWhatsappEntry";
 		String queryOf = "registrationQuery";
 		
-//		list of data from db
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
+		
+//		interacting with browser
 		for(Map<String, String> i:data) {		
-//			getting value from list
 			String name = i.get("name");
 			String email = i.get("email");
 			String phone = i.get("phone");
@@ -328,14 +344,16 @@ public class RegistrationTestCases {
 //	Graduation Year Drop Down
 	@Test(priority = 9) 
 	public void graduationYearDropDown() throws SQLException, FileNotFoundException, IOException {
+//		query parameters
 		String status = "pass";
 		String testingType = "allValidInputs";
 		String queryOf = "registrationQuery";
 		
-//		list of data from db
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
+		
+//		interacting with browser
 		for(Map<String, String> i:data) {		
-//			getting value from list
 			String name = i.get("name");
 			String email = i.get("email");
 			String phone = i.get("phone");
@@ -365,14 +383,16 @@ public class RegistrationTestCases {
 //	Language Drop Down
 	@Test(priority = 10) 
 	public void languageDropDown() throws SQLException, FileNotFoundException, IOException {
+//		query parameters
 		String status = "pass";
 		String testingType = "allValidInputs";
 		String queryOf = "registrationQuery";
 		
-//		list of data from db
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
+		
+//		interacting with browser
 		for(Map<String, String> i:data) {		
-//			getting value from list
 			String name = i.get("name");
 			String email = i.get("email");
 			String phone = i.get("phone");
@@ -402,14 +422,16 @@ public class RegistrationTestCases {
 //	Non Existing User Referral
 	@Test(priority = 11) 
 	public void nonExistingUserReferralEntry() throws SQLException, FileNotFoundException, IOException {
+//		query parameters
 		String status = "fail";
 		String testingType = "nonExistingUserReferralEntry";
 		String queryOf = "registrationQuery";
 
-//		list of data from db
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
+		
+//		interacting with browser
 		for(Map<String, String> i:data) {		
-//			getting value from list
 			String name = i.get("name");
 			String email = i.get("email");
 			String phone = i.get("phone");
@@ -439,14 +461,16 @@ public class RegistrationTestCases {
 //	All valid entry
 	@Test(priority = 12) 
 	public void allValidInputs() throws SQLException, FileNotFoundException, IOException {
+//		query parameters
 		String status = "pass";
 		String testingType = "allValidInputs";
 		String queryOf = "registrationQuery";
 		
-//		list of data from db
+//		database data
 		List<Map<String, String>> data = DatabaseUtils.getTestData(status, testingType, queryOf);
+		
+//		interacting with browser
 		for(Map<String, String> i:data) {		
-//			getting value from list
 			String name = i.get("name");
 			String email = i.get("email");
 			String phone = i.get("phone");
@@ -473,7 +497,7 @@ public class RegistrationTestCases {
 		}
 	}
 
-//	quite
+//	quit
 	@AfterTest
 	public void clean() throws SQLException {
 		rPOM.clear();
