@@ -1,5 +1,8 @@
 package com.Kodnest.Registration;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -7,6 +10,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,16 +20,16 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import utils.DatabaseUtils;
+
 public class RegistrationPOM {
 	
 	private WebDriver driver;
-	private Connection con;
 	
 //	Constructor
 	public RegistrationPOM(WebDriver driver) throws SQLException {
 		super();
 		this.driver = driver;
-		this.con = DriverManager.getConnection(db_url,db_user,db_password);
 		PageFactory.initElements(driver, this);
 	} 
 	
@@ -65,29 +70,9 @@ public class RegistrationPOM {
 	
 	@FindBy(id = "form-field-field_aa6903c")
 	private WebElement language;
-	
-	
-//	Variable
-	private String db_url = System.getenv("URL_DB");
-	private String db_password = System.getenv("PASSWORD_DB");
-	private String db_user = System.getenv("USER_DB");
-	
-	
-//	query
-	String query_numericValueInNameField = "select * from registrationpage where status='fail' AND testingType='numericValueInNameField'";
-	String query_specialValueInNameField = "select * from registrationpage where status='fail' AND testingType='specialValueInNameField'";
-	String query_allFieldBlank = "select * from registrationpage where status='fail' AND testingType='allFieldBlank'";
-	String query_invalidFormatedEmailEntry = "select * from registrationpage where status='fail' AND testingType='invalidFormatedEmailEntry'";
-	String query_registeredEmailEntry = "select * from registrationpage where status='fail' AND testingType='registeredEmailEntry'";
-	String query_negativePhoneEntry = "select * from registrationpage where status='fail' AND testingType='negativePhoneEntry'";
-	String query_lesserThanTenDigitPhoneAndWhatsappEntry = "select * from registrationpage where status='fail' AND testingType='lesserThanTenDigitPhoneAndWhatsappEntry'";
-	String query_moreThanTenDigitPhoneAndWhatsappEntry = "select * from registrationpage where status='fail' AND testingType='moreThanTenDigitPhoneAndWhatsappEntry'";
-	String query_nonExistingUserReferralEntry = "select * from registrationpage where status='fail' AND testingType='nonExistingUserReferralEntry'";
-	String query_allValidInputs = "select * from registrationpage where status='fail' AND testingType='allValidInputs'";
 
 	
 //	METHODS
-	
 	
 //	Name Field	
 	public void dataName(String name) {
@@ -162,20 +147,12 @@ public class RegistrationPOM {
 	}
 	
 //	database connection
-	public List<String[]> dbdata(String query) throws SQLException {
-		List<String[]> data = new ArrayList<>();
-
-		Statement st = con.createStatement();
-		ResultSet rs = st.executeQuery(query);
-		while(rs.next()) {
-			String name = rs.getString("name");
-			String email = rs.getString("email");
-			String phone = rs.getString("phone");
-			String referenceId = rs.getString("referred id");
-			String result = rs.getString("result");
-			
-			data.add(new String[] {name,email,phone,referenceId,result});
-		}
+	public List<Map<String, String>> dbdata(String prams1, String prams2) throws SQLException, FileNotFoundException, IOException {
+		Properties props = new Properties();
+		props.load(new FileInputStream("C:\\Users\\hp\\git\\repository2\\KodnestApp\\src\\queries.properties"));
+		String query = props.getProperty("registrationQuery");
+	
+		List<Map<String, String>> data = DatabaseUtils.getTestData(query, prams1, prams2);
 		return data;
 	}
 
@@ -189,7 +166,7 @@ public class RegistrationPOM {
 	
 //	clear
 	public void clear() throws SQLException {
-		con.close();
+		DatabaseUtils.close();
 		driver.quit();
 	}	
 }

@@ -1,8 +1,11 @@
 package com.Kodnest.ForgotPassword;
 
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -30,18 +33,19 @@ public class ForgotPassword {
 	
 //	Invalid Email Format
 	@Test(priority = 1)
-	public void invalidEmailFormat() throws SQLException {
-		String query = fpModel.queryInvalidFormatEmail;
+	public void invalidEmailFormat() throws SQLException, FileNotFoundException, IOException {
+		String status = "fail";
+		String testingType = "invalid email format";
 		
-		List<String[]> data = fpModel.dbdata(query);
-		for(int i=0; i<data.size(); i++) {
-			String email=data.get(i)[0];
-			String result=data.get(i)[1];
+		List<Map<String, String>> data = fpModel.dbdata(status,testingType);
+		for(Map<String, String> i:data) {
+			String email = i.get("email");
+			String result = i.get("result");
 			
 			fpModel.enterEmailField(email);
 			fpModel.sendLinkButton();
 			
-//		error check assert
+//			error check assert
 			Assert.assertEquals(fpModel.emailError(), result);
 			
 //			refresh page
@@ -51,13 +55,14 @@ public class ForgotPassword {
 	
 //	empty field
 	@Test(priority = 2)
-	public void emptyField() throws SQLException {
-		String query = fpModel.queryEmptyField;
+	public void emptyField() throws SQLException, FileNotFoundException, IOException {
+		String status = "fail";
+		String testingType = "field blank";
 		
-		List<String[]> data = fpModel.dbdata(query);
-		for(int i=0; i<data.size(); i++) {
-			String email=data.get(i)[0];
-			String result=data.get(i)[1];
+		List<Map<String, String>> data = fpModel.dbdata(status,testingType);
+		for(Map<String, String> i:data) {
+			String email = i.get("email");
+			String result = i.get("result");
 			
 			fpModel.enterEmailField(email);
 			fpModel.sendLinkButton();
@@ -72,13 +77,14 @@ public class ForgotPassword {
 	
 //	Invalid User
 	@Test(priority = 3)
-	public void invalidUser() throws SQLException {
-		String query = fpModel.queryinvalidEmail;
+	public void invalidUser() throws SQLException, FileNotFoundException, IOException {
+		String status = "fail";
+		String testingType = "invalid user";
 		
-		List<String[]> data = fpModel.dbdata(query);
-		for(int i=0; i<data.size(); i++) {
-			String email=data.get(i)[0];
-			String result=data.get(i)[1];
+		List<Map<String, String>> data = fpModel.dbdata(status,testingType);
+		for(Map<String, String> i:data) {
+			String email = i.get("email");
+			String result = i.get("result");
 			
 			fpModel.enterEmailField(email);
 			fpModel.sendLinkButton();
@@ -93,13 +99,14 @@ public class ForgotPassword {
 	
 //	Valid User
 	@Test(priority = 4)
-	public void validUser() throws SQLException {
-		String query = fpModel.queryValidEmail;
+	public void validUser() throws SQLException, FileNotFoundException, IOException {
+		String status = "pass";
+		String testingType = "valid email";
 		
-		List<String[]> data = fpModel.dbdata(query);
-		for(int i=0; i<data.size(); i++) {
-			String email=data.get(i)[0];
-//			String result=data.get(i)[1];
+		List<Map<String, String>> data = fpModel.dbdata(status,testingType);
+		for(Map<String, String> i:data) {
+			String email = i.get("email");
+//			String result = i.get("result");
 			
 			fpModel.enterEmailField(email);
 			fpModel.sendLinkButton();
@@ -111,6 +118,4 @@ public class ForgotPassword {
 	public void clean() throws SQLException {
 		fpModel.clear();
 	}
-	
-	
 }

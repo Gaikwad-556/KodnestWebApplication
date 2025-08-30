@@ -100,7 +100,7 @@ public class LoginPageModel {
 //	database connection
 	public List<Map<String,String>> dbData(String prams1, String prams2) throws SQLException, FileNotFoundException, IOException {
 		Properties pros = new Properties();
-		pros.load(new FileInputStream("C:\\Users\\hp\\git\\repository2\\KodnestApp\\src\\com\\Kodnest\\Login\\queries.properties"));
+		pros.load(new FileInputStream("C:\\Users\\hp\\git\\repository2\\KodnestApp\\src\\queries.properties"));
 		String query = pros.getProperty("loginPageQuery");
 		
 		List<Map<String, String>> data = DatabaseUtils.getTestData(query, prams1,prams2);

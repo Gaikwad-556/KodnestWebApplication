@@ -1,7 +1,10 @@
 package com.Kodnest.Registration;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -28,19 +31,19 @@ public class RegistrationTestCases {
 	
 //	Numeric Value In Name Field
 	@Test(priority = 1) 
-	public void numericValueInNameField() throws SQLException {
-//		query 
-		String query = rPOM.query_numericValueInNameField;
+	public void numericValueInNameField() throws SQLException, FileNotFoundException, IOException {
+		String status = "fail";
+		String testingType = "numericValueInNameField";
 		
 //		list of data from db
-		List<String[]> data = rPOM.dbdata(query);
-		for(String[] i:data) {		
+		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		for(Map<String, String> i:data) {		
 //			getting value from list
-			String name = i[0];
-			String email = i[1];
-			String phone = i[2];
-			String referredId = i[3];
-			String result = i[4];
+			String name = i.get("name");
+			String email = i.get("email");
+			String phone = i.get("phone");
+			String referredId = i.get("referredId");
+//			String result = i.get("result");
 			
 //			sending value to fields
 			rPOM.dataName(name);
@@ -64,18 +67,19 @@ public class RegistrationTestCases {
 	
 //	Special Value In Name Field
 	@Test(priority = 2) 
-	public void specialValueInNameField() throws SQLException {
-//		query
-		String query = rPOM.query_specialValueInNameField;
+	public void specialValueInNameField() throws SQLException, FileNotFoundException, IOException {
+		String status = "fail";
+		String testingType = "specialValueInNameField";
+		
 //		list of data from db
-		List<String[]> data = rPOM.dbdata(query);
-		for(String[] i:data) {
+		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		for(Map<String, String> i:data) {		
 //			getting value from list
-			String name = i[0];
-			String email = i[1];
-			String phone = i[2];
-			String referredId = i[3];
-			String result = i[4];
+			String name = i.get("name");
+			String email = i.get("email");
+			String phone = i.get("phone");
+			String referredId = i.get("referredId");
+//			String result = i.get("result");
 			
 //			sending value to fields
 			rPOM.dataName(name);
@@ -99,18 +103,20 @@ public class RegistrationTestCases {
 	
 //	All field blank
 	@Test(priority = 3) 
-	public void allFieldBlank() throws SQLException {
-//		query
-		String query = rPOM.query_allFieldBlank;
+	public void allFieldBlank() throws SQLException, FileNotFoundException, IOException {
+		String status = "fail";
+		String testingType = "allFieldBlank";
+		
 //		list of data from db
-		List<String[]> data = rPOM.dbdata(query);
-		for(String[] i:data) {
+		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		for(Map<String, String> i:data) {		
 //			getting value from list
-			String name = i[0];
-			String email = i[1];
-			String phone = i[2];
-			String referredId = i[3];
-			String result = i[4];
+			String name = i.get("name");
+			String email = i.get("email");
+			String phone = i.get("phone");
+			String referredId = i.get("referredId");
+//			String result = i.get("result");
+			
 //			sending value to fields
 			rPOM.dataName(name);
 			rPOM.dataEmail(email);
@@ -131,18 +137,20 @@ public class RegistrationTestCases {
 	
 //	Invalid Formated Email
 	@Test(priority = 4) 
-	public void invalidFormatedEmailEntry() throws SQLException {
-//		query
-		String query = rPOM.query_invalidFormatedEmailEntry;
+	public void invalidFormatedEmailEntry() throws SQLException, FileNotFoundException, IOException {
+		String status = "fail";
+		String testingType = "invalidFormatedEmailEntry";
+		
 //		list of data from db
-		List<String[]> data = rPOM.dbdata(query);
-		for(String[] i:data) {
+		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		for(Map<String, String> i:data) {		
 //			getting value from list
-			String name = i[0];
-			String email = i[1];
-			String phone = i[2];
-			String referredId = i[3];
-			String result = i[4];
+			String name = i.get("name");
+			String email = i.get("email");
+			String phone = i.get("phone");
+			String referredId = i.get("referredId");
+//			String result = i.get("result");
+			
 //			sending value to fields
 			rPOM.dataName(name);
 			rPOM.dataEmail(email);
@@ -165,18 +173,20 @@ public class RegistrationTestCases {
 	
 //	Registered Email
 	@Test(priority = 5) 
-	public void registeredEmailEntry() throws SQLException {
-//		query
-		String query = rPOM.query_registeredEmailEntry;
+	public void registeredEmailEntry() throws SQLException, FileNotFoundException, IOException {
+		String status = "fail";
+		String testingType = "registeredEmailEntry";
+		
 //		list of data from db
-		List<String[]> data = rPOM.dbdata(query);
-		for(String[] i:data) {
+		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		for(Map<String, String> i:data) {		
 //			getting value from list
-			String name = i[0];
-			String email = i[1];
-			String phone = i[2];
-			String referredId = i[3];
-			String result = i[4];
+			String name = i.get("name");
+			String email = i.get("email");
+			String phone = i.get("phone");
+			String referredId = i.get("referredId");
+//			String result = i.get("result");
+			
 //			sending value to fields
 			rPOM.dataName(name);
 			rPOM.dataEmail(email);
@@ -199,18 +209,20 @@ public class RegistrationTestCases {
 	
 //	Negative Phone Number
 	@Test(priority = 6) 
-	public void negativePhoneEntry() throws SQLException {
-//		query
-		String query = rPOM.query_negativePhoneEntry;
+	public void negativePhoneEntry() throws SQLException, FileNotFoundException, IOException {
+		String status = "fail";
+		String testingType = "negativePhoneEntry";
+		
 //		list of data from db
-		List<String[]> data = rPOM.dbdata(query);
-		for(String[] i:data) {
+		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		for(Map<String, String> i:data) {		
 //			getting value from list
-			String name = i[0];
-			String email = i[1];
-			String phone = i[2];
-			String referredId = i[3];
-			String result = i[4];
+			String name = i.get("name");
+			String email = i.get("email");
+			String phone = i.get("phone");
+			String referredId = i.get("referredId");
+//			String result = i.get("result");
+			
 //			sending value to fields
 			rPOM.dataName(name);
 			rPOM.dataEmail(email);
@@ -233,18 +245,20 @@ public class RegistrationTestCases {
 	
 //	Entered less than 10 digit phone number
 	@Test(priority = 7) 
-	public void lesserThanTenDigitPhoneAndWhatsappEntry() throws SQLException {
-//		query
-		String query = rPOM.query_lesserThanTenDigitPhoneAndWhatsappEntry;
+	public void lesserThanTenDigitPhoneAndWhatsappEntry() throws SQLException, FileNotFoundException, IOException {
+		String status = "fail";
+		String testingType = "lesserThanTenDigitPhoneAndWhatsappEntry";
+		
 //		list of data from db
-		List<String[]> data = rPOM.dbdata(query);
-		for(String[] i:data) {
+		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		for(Map<String, String> i:data) {		
 //			getting value from list
-			String name = i[0];
-			String email = i[1];
-			String phone = i[2];
-			String referredId = i[3];
-			String result = i[4];
+			String name = i.get("name");
+			String email = i.get("email");
+			String phone = i.get("phone");
+			String referredId = i.get("referredId");
+//			String result = i.get("result");
+			
 //			sending value to fields
 			rPOM.dataName(name);
 			rPOM.dataEmail(email);
@@ -267,18 +281,20 @@ public class RegistrationTestCases {
 	
 //	Entered more than 10 digit phone number
 	@Test(priority = 8) 
-	public void moreThanTenDigitPhoneAndWhatsappEntry() throws SQLException {
-//		query
-		String query = rPOM.query_moreThanTenDigitPhoneAndWhatsappEntry;	
+	public void moreThanTenDigitPhoneAndWhatsappEntry() throws SQLException, FileNotFoundException, IOException {
+		String status = "fail";
+		String testingType = "moreThanTenDigitPhoneAndWhatsappEntry";
+		
 //		list of data from db
-		List<String[]> data = rPOM.dbdata(query);
-		for(String[] i:data) {
+		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		for(Map<String, String> i:data) {		
 //			getting value from list
-			String name = i[0];
-			String email = i[1];
-			String phone = i[2];
-			String referredId = i[3];
-			String result = i[4];
+			String name = i.get("name");
+			String email = i.get("email");
+			String phone = i.get("phone");
+			String referredId = i.get("referredId");
+//			String result = i.get("result");
+			
 //			sending value to fields
 			rPOM.dataName(name);
 			rPOM.dataEmail(email);
@@ -301,18 +317,20 @@ public class RegistrationTestCases {
 	
 //	Graduation Year Drop Down
 	@Test(priority = 9) 
-	public void graduationYearDropDown() throws SQLException {
-//		query
-		String query = rPOM.query_allValidInputs;
+	public void graduationYearDropDown() throws SQLException, FileNotFoundException, IOException {
+		String status = "pass";
+		String testingType = "allValidInputs";
+		
 //		list of data from db
-		List<String[]> data = rPOM.dbdata(query);
-		for(String[] i:data) {
+		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		for(Map<String, String> i:data) {		
 //			getting value from list
-			String name = i[0];
-			String email = i[1];
-			String phone = i[2];
-			String referredId = i[3];
-			String result = i[4];
+			String name = i.get("name");
+			String email = i.get("email");
+			String phone = i.get("phone");
+			String referredId = i.get("referredId");
+//			String result = i.get("result");
+			
 //			sending value to fields
 			rPOM.dataName(name);
 			rPOM.dataEmail(email);
@@ -335,18 +353,20 @@ public class RegistrationTestCases {
 	
 //	Language Drop Down
 	@Test(priority = 10) 
-	public void languageDropDown() throws SQLException {
-//		query
-		String query = rPOM.query_allValidInputs;
+	public void languageDropDown() throws SQLException, FileNotFoundException, IOException {
+		String status = "pass";
+		String testingType = "allValidInputs";
+		
 //		list of data from db
-		List<String[]> data = rPOM.dbdata(query);
-		for(String[] i:data) {
+		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		for(Map<String, String> i:data) {		
 //			getting value from list
-			String name = i[0];
-			String email = i[1];
-			String phone = i[2];
-			String referredId = i[3];
-			String result = i[4];
+			String name = i.get("name");
+			String email = i.get("email");
+			String phone = i.get("phone");
+			String referredId = i.get("referredId");
+//			String result = i.get("result");
+			
 //			sending value to fields
 			rPOM.dataName(name);
 			rPOM.dataEmail(email);
@@ -369,18 +389,20 @@ public class RegistrationTestCases {
 	
 //	Non Existing User Referral
 	@Test(priority = 11) 
-	public void nonExistingUserReferralEntry() throws SQLException {
-//		query
-		String query = rPOM.query_nonExistingUserReferralEntry;
+	public void nonExistingUserReferralEntry() throws SQLException, FileNotFoundException, IOException {
+		String status = "fail";
+		String testingType = "nonExistingUserReferralEntry";
+		
 //		list of data from db
-		List<String[]> data = rPOM.dbdata(query);
-		for(String[] i:data) {
+		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		for(Map<String, String> i:data) {		
 //			getting value from list
-			String name = i[0];
-			String email = i[1];
-			String phone = i[2];
-			String referredId = i[3];
-			String result = i[4];
+			String name = i.get("name");
+			String email = i.get("email");
+			String phone = i.get("phone");
+			String referredId = i.get("referredId");
+//			String result = i.get("result");
+			
 //			sending value to fields
 			rPOM.dataName(name);
 			rPOM.dataEmail(email);
@@ -403,18 +425,20 @@ public class RegistrationTestCases {
 	
 //	All valid entry
 	@Test(priority = 12) 
-	public void allValidInputs() throws SQLException {
-//		query
-		String query = rPOM.query_allValidInputs;
+	public void allValidInputs() throws SQLException, FileNotFoundException, IOException {
+		String status = "pass";
+		String testingType = "allValidInputs";
+		
 //		list of data from db
-		List<String[]> data = rPOM.dbdata(query);
-		for(String[] i:data) {
+		List<Map<String, String>> data = rPOM.dbdata(status, testingType);
+		for(Map<String, String> i:data) {		
 //			getting value from list
-			String name = i[0];
-			String email = i[1];
-			String phone = i[2];
-			String referredId = i[3];
-			String result = i[4];
+			String name = i.get("name");
+			String email = i.get("email");
+			String phone = i.get("phone");
+			String referredId = i.get("referredId");
+//			String result = i.get("result");
+			
 //			sending value to fields
 			rPOM.dataName(name);
 			rPOM.dataEmail(email);
